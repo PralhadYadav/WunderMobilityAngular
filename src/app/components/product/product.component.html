@@ -1,0 +1,8 @@
+<div *ngFor="let product of products" class="card parent-card col-md-3">
+    <img src="{{product.url}}" class="card-img-top" alt="{{product.name}}">
+    <div class="card-body">
+        <h5 class="card-title">{{product.name}} - {{product.price}}</h5>
+        <button class="btn btn-primary " id="buy-btn" (click)="buyProduct(product)">Buy</button>
+        <button class="btn btn-primary product-btn" id="product-btn" (click)="addToCart(product)">Add to cart</button>
+    </div>
+</div>

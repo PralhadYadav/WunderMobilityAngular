@@ -1,0 +1,45 @@
+<div *ngIf="cartProducts else noProducts">
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Units</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of cartProducts">
+                <td>{{product.name}}</td>
+                <td>{{product.count}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.count * product.price}}</td>
+            </tr>
+            <!-- <tr><hr></tr> -->
+            <tr>
+                <th scope="col" colspan="3">Toatl Cart Price</th>
+                <th scope="col">{{totalCartPrice}}</th>
+            </tr>
+            <tr></tr>
+
+            <tr>
+                <th scope="col" colspan="3">Price after Promotional Coupens</th>
+                <th scope="col">{{finalCartDetails.cartValue}}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="finalCartDetails.cartValue > 0">
+        <h5>Below offers applied to your cart</h5>
+        <ul *ngIf="finalCartDetails.offers">
+            <li *ngFor="let offer of finalCartDetails.offers"
+                [ngClass]="offer.isApplied == true ? 'offerApplied' : 'offerNotApplied'">
+                {{offer.description}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ng-template #noProducts>
+    <div>Your cart is empty</div>
+</ng-template>

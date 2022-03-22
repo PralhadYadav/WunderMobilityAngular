@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active btn-home">
+        <a routerLink="/" routerLinkActive="active">Home<span class="sr-only"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="page-heading">
+    <h2>{{title}}</h2>
+  </div>
+  <button class="btn btn-outline-success cart-btn" type="submit">
+    <a routerLink="/cart">Cart</a>
+  </button>
+</nav>
+
+<router-outlet></router-outlet>
